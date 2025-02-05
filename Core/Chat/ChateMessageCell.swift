@@ -22,7 +22,7 @@ struct ChateMessageCell: View {
                     .frame(maxWidth: UIScreen.main.bounds.width / 1.5, alignment: .trailing)
             }else {
                 HStack(alignment:.bottom, spacing: 8){
-                    CircularProfileImageView(user: User.MOK_USER, size: .xxSmall)
+                    CircularProfileImageView(user: User.MOCK_USER, size: .xxSmall)
                     
                     Text("This is test Message.長い話をしなければなりません。どんなに長くても、内容が濃いものであれば良い")
                         .font(.subheadline)

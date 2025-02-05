@@ -11,8 +11,7 @@ import FirebaseFirestoreSwift
 import FirebaseAuth
 
 
-class AuthService {
-    
+class AuthService {    
     @Published var userSession: FirebaseAuth.User?
     
     static let shared = AuthService()
@@ -33,7 +32,7 @@ class AuthService {
         }
         
     }
-    
+  
     @MainActor
     func createUser(withEmail email: String, password: String, fullname: String) async throws {
         do {
@@ -46,7 +45,7 @@ class AuthService {
         }
         
     }
-    
+     
     func signOut() {
         do {
             try Auth.auth().signOut() //sign out on backend

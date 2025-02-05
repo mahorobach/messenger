@@ -7,8 +7,7 @@
 
 import Foundation
 import Combine
-//import FirebaseFirestore
-
+import FirebaseFirestore
 
 class InboxViewModel: ObservableObject {
     @Published var currentUser: User?

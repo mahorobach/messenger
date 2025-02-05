@@ -22,5 +22,5 @@ struct User : Codable, Identifiable , Hashable{
 }
 
 extension User {
-    static let MOK_USER = User(fullname: "yamada taro", email: "taro@gmail.com", profileImageUrl: "momotarou")
+    static let MOCK_USER = User(fullname: "yamada taro", email: "taro@gmail.com", profileImageUrl: "momotarou")
 }
