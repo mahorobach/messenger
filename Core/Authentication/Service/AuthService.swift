@@ -5,9 +5,8 @@
 //  Created by 赤尾浩史 on 2023/10/19.
 //
 
-import Foundation
+
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 import FirebaseAuth
 
 

@@ -15,51 +15,51 @@ struct NewMessageView: View {
     
     var body: some View {
         NavigationStack {
-        ScrollView {
-            TextField("To", text: $searchText)
-                .frame(height: 44)
-                .padding(.leading)
-                .background(Color(.systemGroupedBackground))
-            
-            Text("CONTACTS")
-                .foregroundColor(.gray)
-                .font(.footnote)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-            
-            ForEach(viewModel.users) { user in
-                VStack {
-                    HStack {
-                        CircularProfileImageView(user: user, size: .small)
-                        
-                        Text(user.fullname)
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                        
-                        Spacer()
-                    }
+            ScrollView {
+                TextField("To", text: $searchText)
+                    .frame(height: 44)
                     .padding(.leading)
-                    
-                    Divider()
-                        .padding(.leading, 40)
+                    .background(Color(.systemGroupedBackground))
+                
+                Text("CONTACTS")
+                    .foregroundColor(.gray)
+                    .font(.footnote)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                
+                ForEach(viewModel.users) { user in
+                    VStack {
+                        HStack {
+                            CircularProfileImageView(user: user, size: .small)
+                            
+                            Text(user.fullname)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                        }
+                        .padding(.leading)
+                        
+                        Divider()
+                            .padding(.leading, 40)
+                    }
+                    .onTapGesture {
+                        selectedUser = user
+                        dismiss()
+                    }
                 }
-                .onTapGesture {
-                    selectedUser = user
-                    dismiss()
+                
+            }
+            .navigationTitle("New Messsage")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                    .foregroundColor(.black)
                 }
             }
-
-        }
-        .navigationTitle("New Messsage")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading){
-                Button("Cancel") {
-                    dismiss()
-                }
-                .foregroundColor(.black)
-            }
-        }
         }
     }
 }

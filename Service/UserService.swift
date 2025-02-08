@@ -7,7 +7,8 @@
 
 import Foundation
 import Firebase
-import FirebaseFirestoreSwift
+import FirebaseFirestore
+
 
 class UserService {
     
@@ -24,7 +25,18 @@ class UserService {
         
     }
     
-    static func fetchAllUsers() async throws -> [User] {
+    static func fetchAllUsers(limit: Int? = nil) async throws -> [User] {
+        let query = FirestoreConstants.UserCollection
+        if let limit {query.limit(to: limit) }
         let snapshot = try await Firestore.firestore().collection("users").getDocuments()
         return snapshot.documents.compactMap( { try? $0.data(as: User.self) })    }
+    
+    static func fetchUser(withUid uid: String, completion: @escaping(User) -> Void ) {
+        FirestoreConstants.UserCollection.document(uid).getDocument { snapshot, _ in
+            guard let user = try? snapshot?.data(as: User.self) else { return }
+            completion(user)
+        }
+        
+        print("Hello")
+    }
 }

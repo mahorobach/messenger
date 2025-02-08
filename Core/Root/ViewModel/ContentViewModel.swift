@@ -9,6 +9,7 @@ import Foundation
 
 import Firebase
 import Combine
+import FirebaseAuth
 
 class ContentViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
